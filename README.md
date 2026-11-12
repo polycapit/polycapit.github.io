@@ -1,4 +1,4 @@
-## Hi there 👋
+## 成员无需下载企业微信客户端，直接用微信扫码关注微信插件，即可在微信中接收企业通知和使用企业应用。 👋
 
 <!--
 **polycapit/polycapit** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
