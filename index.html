@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>微信插件</title>
+<style>
+  :root {
+    --bg: #0b0f17;
+    --text: #eef3fb;
+    --muted: #93a1b8;
+    --line: rgba(255, 255, 255, .10);
+  }
+  * { box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body {
+    margin: 0;
+    padding: 36px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background:
+      radial-gradient(900px 520px at 12% -12%, rgba(109, 155, 255, .20), transparent 62%),
+      radial-gradient(760px 500px at 98% 112%, rgba(154, 123, 255, .18), transparent 62%),
+      var(--bg);
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), transparent 88%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), transparent 88%);
+  }
+  .card {
+    position: relative;
+    width: min(440px, 100%);
+    padding: 30px 30px 26px;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .018));
+    box-shadow: 0 28px 80px rgba(0, 0, 0, .48), inset 0 1px 0 rgba(255, 255, 255, .06);
+    backdrop-filter: blur(14px);
+  }
+  h1 {
+    margin: 16px 0 6px;
+    font-size: 27px;
+    font-weight: 650;
+    letter-spacing: -.4px;
+  }
+  .sub { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.7; }
+
+  .stage {
+    position: relative;
+    margin: 24px 0 18px;
+    padding: 16px;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .35), 0 0 0 1px rgba(255, 255, 255, .10);
+  }
+  .stage img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    image-rendering: pixelated;
+  }
+  .corner {
+    position: absolute;
+    width: 20px; height: 20px;
+    border: 2px solid rgba(109, 155, 255, .55);
+    pointer-events: none;
+  }
+  .corner.tl { top: -5px; left: -5px; border-right: 0; border-bottom: 0; border-radius: 8px 0 0 0; }
+  .corner.tr { top: -5px; right: -5px; border-left: 0; border-bottom: 0; border-radius: 0 8px 0 0; }
+  .corner.bl { bottom: -5px; left: -5px; border-right: 0; border-top: 0; border-radius: 0 0 0 8px; }
+  .corner.br { bottom: -5px; right: -5px; border-left: 0; border-top: 0; border-radius: 0 0 8px 0; }
+
+  @media (max-width: 420px) {
+    .card { padding: 24px 20px 22px; }
+    h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <h1>微信插件</h1>
+    <p class="sub">关注后，你可在微信中收发企业微信的工作消息和通知。</p>
+
+    <div class="stage">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+      <!-- 微信插件关注二维码 -->
+      <img id="qrImage" src="qrcode_258.png" alt="二维码图片" />
+    </div>
+  </main>
+</body>
+</html>
